@@ -45,6 +45,11 @@ body {
   background: repeat url("../assets/bg-shapes.png");
   background-color: var(--background-primary);
 }
+
+.topo {
+  max-width: 26.563rem;
+}
+
 .logo {
   display: flex;
   justify-content: center;
@@ -239,7 +244,8 @@ input[type="checkbox"]:checked + .slider:before {
 .btn:hover {
   background: var(--background-secondary);
   border: 1px solid transparent;
-  border-image: linear-gradient( to right,
+  border-image: linear-gradient(
+    to right,
     var(--accent-green),
     var(--accent-lime),
     var(--accent-red),
@@ -253,7 +259,8 @@ input[type="checkbox"]:checked + .slider:before {
   background: var(--background-secondary);
   border: 2px solid transparent;
   border-radius: 0.5rem;
-  border-image: linear-gradient( to right,
+  border-image: linear-gradient(
+    to right,
     var(--accent-green),
     var(--accent-lime),
     var(--accent-red),
@@ -265,17 +272,19 @@ input[type="checkbox"]:checked + .slider:before {
 }
 
 /* QnA */
-.questions{
+.questions {
   margin-top: 2.75rem;
+  margin-bottom: 2.75rem;
+  grid-area: questions;
 }
-.question{
+.question {
   display: flex;
   gap: 0.5rem;
   margin-top: 2.25rem;
 }
 
 @media (width >= 64rem) {
-  .grid.container {
+  .grid-container {
     max-width: 84.688rem;
     display: grid;
     justify-content: space-between;
@@ -293,10 +302,18 @@ input[type="checkbox"]:checked + .slider:before {
     gap: 0.75rem;
     margin-top: 5.563rem;
   }
+  .content-form {
+    margin-top: 8.5rem;
+    margin-left: 6.75rem;
+  }
   h1 {
     font: var(--display-lg);
   }
   p {
     font: var(--p-lg);
+  }
+
+  .questions{
+    margin-right: 7.625rem;
   }
 }
