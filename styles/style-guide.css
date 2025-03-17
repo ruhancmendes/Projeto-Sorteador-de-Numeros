@@ -168,18 +168,19 @@ input[type="text"]:focus-within {
 }
 
 /* Results*/
-.form-results{
+.form-results {
   grid-area: form-results;
   margin-top: 2.625rem;
   display: grid;
   gap: 2.5rem;
 }
-.title-form{
+.title-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
-.result{
+.result {
   display: flex;
   width: 6.25rem;
   height: 6.25rem;
@@ -188,35 +189,65 @@ input[type="text"]:focus-within {
   align-items: center;
   justify-content: center;
   margin: auto;
+  z-index: 0;
 
-  animation: slideIn-rotate-vanish 3s ease-in-out infinite;
+  animation: slideIn-rotate-vanish 3s ease-in-out forwards;
 }
 
-@keyframes slideIn-rotate-vanish{
-  0%{
+@keyframes slideIn-rotate-vanish {
+  0% {
     transform: scale(0);
     opacity: 0;
   }
-  25%{
+  25% {
     transform: scale(1);
     opacity: 1;
   }
-  50%{
+  50% {
     transform: rotate(180deg);
   }
-  75%{
+  75% {
     transform: scale(1) rotate(180deg);
     opacity: 1;
   }
-  100%{
-    transform: scale(0) rotate(180deg);
+  100% {
+    transform: scale(0.75) rotate(180deg);
     opacity: 0;
   }
 }
 
-.content-number{
+.result-wrapper {
+  position: relative;
+  width: 6.25rem;
+  height: 6.25rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-number {
+  top: 0;
+  position: absolute;
   font: 800 64px/150% var(--ff-mono);
   color: var(--color-inverse);
+  z-index: 1;
+  animation: appear-color 3s ease-in-out forwards;
+}
+@keyframes appear-color {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75% {
+    color: var(--color-inverse);
+  }
+  100% {
+    color: var(--content-brand);
+  }
 }
 
 /* Switch */
@@ -278,7 +309,7 @@ input[type="checkbox"]:checked + .slider:before {
 
 /* Button */
 .btn {
-  display: none;
+  display: flex;
   width: 100%;
   height: 3.5rem;
   padding: 1rem;
@@ -325,6 +356,23 @@ input[type="checkbox"]:checked + .slider:before {
   outline: none;
 }
 
+#novamente{
+  opacity: 0;
+  animation: appearBtn 1s ease-in-out forwards;
+  animation-delay: 3s;
+}
+
+@keyframes appearBtn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* QnA */
 .questions {
   margin-top: 2.75rem;
@@ -361,7 +409,7 @@ input[type="checkbox"]:checked + .slider:before {
     margin-left: 6.75rem;
   }
 
-  .form-results{
+  .form-results {
     margin-top: 8.5rem;
     min-width: 30.125rem;
     margin-left: 6rem;
@@ -374,7 +422,7 @@ input[type="checkbox"]:checked + .slider:before {
     font: var(--p-lg);
   }
 
-  .questions{
+  .questions {
     margin-right: 7.625rem;
   }
 }
